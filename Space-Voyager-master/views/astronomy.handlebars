@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="/css/astro.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+<h3 class="display-2 text-center">Astronomy Picture of the Day</h3>
+
+<hr style="border-width: 2px;">
+
+<br>
+
+<div class="jumbotron" id="big">
+  <header>
+    <br>
+    
+    <nav>
+      <ul class="nav_links">
+        <br>
+      <br>
+        <li><a href="/mars">Mars</a></li>
+        <li><a href="/solar">Planets</a></li>
+        <li><a class="home-link" href="/home">Home</a></li>
+        <li><a href="/iss">ISS</a></li>
+        <li><a href="/astronomy">APOTD</a></li>
+      </ul>
+      <br>
+      <br>
+    </nav>
+    
+    <br>
+  </header>
+
+</div>
+
+<hr style="border-width: 2px;">
+
+<br>
+
+{{!-- Title of picture --}}
+{{#each response}}
+
+<div class="text-center">
+  <h3 class="display-2 text-center"> {{this.title}} </h3>
+</div>
+{{/each}}
+
+<br>
+<br>
+<br>
+<br>
+
+
+{{!-- Paragraph detailing picture --}}
+{{#each response}}
+<div class="text-center">
+<class="display-2 text-center" id="bottom">
+  {{this.explanation}}
+  <br>
+</div>
+{{/each}}
+
+<br>
+<br>
+<br>
+<br>
+
+{{!-- Rendered picture --}}
+<div class="text-center">
+
+  {{!-- Remember to add this astro class if the pic is small, need to ask Jack about this one --}}
+  {{!-- class="astro" --}}
+
+  {{#each response}}
+  <img src={{this.hdurl}}>
+  <br>
+  {{/each}}
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+
+{{!-- Date --}}
+{{#each response}}
+<div class="text-center">
+  <h3 class="display-2 text-center">
+    {{this.date}} </h3>
+  <br>
+</div>
+{{/each}}
+
+<br>
+<br>
+<br>
+<br>
+
+<footer>
+  <div id="footer">
+
+    <div class="social-media container has-text-centered">
+      <a href="https://github.com/Chandler8/Space-Voyager" target="_blank"><i
+          class="fab fa-github-square fa-4x"></i></a>
+      <a href="https://www.nasa.gov/" target="_blank"><i class="fas fa-user-astronaut fa-3x"></i></a>
+      <a href="" target="_blank"><i class="fab fa-reddit-square fa-4x"></i></a>
+    </div>
+
+    <div class="copyWrite-container">
+      &copy;
+      <script>document.write(new Date().getFullYear());</script>, The Flawless Squirrels
+    </div>
+
+  </div>
+</footer>
+
+
+{{!-- Jack please help me get rid of the 5 extra blank images that keep persisting on my page because of the #each loop, thank you --}}
+{{!-- I could get rid of the style class but then my pic gets massive, I need it contained in this manner --}}
